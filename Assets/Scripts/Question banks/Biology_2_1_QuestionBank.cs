@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BiologyQuestionBank : MonoBehaviour
+// MOLECULAR BASIS OF LIFE
+public class Biology_2_1_QuestionBank : MonoBehaviour
 {
     public static List<Question> questions = new List<Question>();
     public static Question biology001;

@@ -7,18 +7,23 @@ public class BiologySpellingBee : MonoBehaviour
 {
     public Text evaluationText;
     public InputField inputField;
+    private int questionArrayNumber = 0;
     void Start()
+    {
+        PlayQuestion();
+    }
+
+    public void PlayQuestion()
     {
         GameObject soundManager = GameObject.Find("SoundManager");
         SoundManager soundManagerScript = soundManager.GetComponent<SoundManager>();
 
-
-        soundManagerScript.playQuestionSound(BiologyQuestionBank.questions[0].questionAudio);
+        soundManagerScript.playQuestionSound(Biology_2_1_QuestionBank.questions[questionArrayNumber].questionAudio);
     }
 
     public void CheckButton()
     {
-        if (inputField.text == "atom")
+        if (inputField.text == Biology_2_1_QuestionBank.questions[questionArrayNumber].answer)
         {
             evaluationText.text = "correct";
         }
@@ -26,5 +31,12 @@ public class BiologySpellingBee : MonoBehaviour
         {
             evaluationText.text = "incorrect";
         }
+    }
+
+    public void NextButton()
+    {
+        inputField.text = "";
+        questionArrayNumber++;
+        PlayQuestion();
     }
 }
