@@ -9,6 +9,7 @@ public class Question
     public string answer;
     public bool answered;
     public int level;
+    public string description;
 }
 
 
