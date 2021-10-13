@@ -9,7 +9,7 @@ public class BiologySpellingBee : MonoBehaviour
     public InputField inputField;
     private int questionArrayNumber = 0;
     public Canvas questionCanvas, answerCanvas;
-    public GameObject char1;
+    public GameObject beeGirlChar, fortuneTellerChar;
     void Start()
     {
         PlayQuestion();
@@ -18,7 +18,6 @@ public class BiologySpellingBee : MonoBehaviour
     public void PlayQuestion()
     {
         questionCanvas.GetComponent<CanvasGroup>().alpha = 1.0f;
-
 
         GameObject soundManager = GameObject.Find("SoundManager");
         SoundManager soundManagerScript = soundManager.GetComponent<SoundManager>();
@@ -33,7 +32,8 @@ public class BiologySpellingBee : MonoBehaviour
 
         questionCanvas.GetComponent<CanvasGroup>().alpha = 0.0f;
         answerCanvas.GetComponent<CanvasGroup>().alpha = 1.0f;
-        char1.GetComponent<Renderer>().enabled = true;
+        fortuneTellerChar.SetActive(false);
+        beeGirlChar.GetComponent<Renderer>().enabled = true;
     }
 
     public void CheckButton()
@@ -55,6 +55,7 @@ public class BiologySpellingBee : MonoBehaviour
         PlayQuestion();
 
         answerCanvas.GetComponent<CanvasGroup>().alpha = 0.0f;
-        char1.GetComponent<Renderer>().enabled = false;
+        fortuneTellerChar.SetActive(true);
+        beeGirlChar.GetComponent<Renderer>().enabled = false;
     }
 }
