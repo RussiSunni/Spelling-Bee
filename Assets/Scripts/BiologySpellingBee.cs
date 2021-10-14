@@ -9,8 +9,10 @@ public class BiologySpellingBee : MonoBehaviour
     public InputField inputField;
     private int questionArrayNumber = 0;
     public Canvas questionCanvas, answerCanvas;
+    public Image descriptionPanel;
+    public Text descriptionText;
     public GameObject beeGirlChar, fortuneTellerChar;
-    public BeeGirlChar beeGirlChar;
+    public BeeGirlChar beeGirlCharScript;
     void Start()
     {
         PlayQuestion();
@@ -28,8 +30,6 @@ public class BiologySpellingBee : MonoBehaviour
 
         // change to answer view
         StartCoroutine(ChangeStageCoroutine());
-
-        GameObject beeGirlChar = GameObject.Find("BeeGirlChar");
     }
 
     IEnumerator ChangeStageCoroutine()
@@ -49,17 +49,21 @@ public class BiologySpellingBee : MonoBehaviour
         if (inputField.text == Biology_2_1_QuestionBank.questions[questionArrayNumber].answer)
         {
             evaluationText.text = "correct";
+            beeGirlCharScript.CorrectAnimation();
         }
         else
         {
             evaluationText.text = "incorrect";
+            beeGirlCharScript.IncorrectAnimation();
         }
 
-        Next();
+        StartCoroutine(NextCoroutine());
     }
 
-    public void Next()
+    IEnumerator NextCoroutine()
     {
+        yield return new WaitForSeconds(2);
+
         // clear input field
         inputField.text = "";
 
@@ -71,6 +75,7 @@ public class BiologySpellingBee : MonoBehaviour
         answerCanvas.GetComponent<CanvasGroup>().alpha = 0.0f;
         fortuneTellerChar.SetActive(true);
         beeGirlChar.GetComponent<Renderer>().enabled = false;
+        beeGirlCharScript.NeutralAnimation();
     }
 
     public void RepeatButton()
@@ -79,5 +84,23 @@ public class BiologySpellingBee : MonoBehaviour
         GameObject soundManager = GameObject.Find("SoundManager");
         SoundManager soundManagerScript = soundManager.GetComponent<SoundManager>();
         soundManagerScript.playQuestionSound(Biology_2_1_QuestionBank.questions[questionArrayNumber].questionAudio);
+    }
+
+    public void DescriptionOpenButton()
+    {
+        beeGirlChar.GetComponent<Renderer>().enabled = false;
+        // display description
+        descriptionPanel.GetComponent<CanvasGroup>().blocksRaycasts = true;
+        descriptionPanel.GetComponent<CanvasGroup>().alpha = 1.0f;
+        descriptionText.text = Biology_2_1_QuestionBank.questions[questionArrayNumber].description;
+    }
+
+    public void DescriptionCloseButton()
+    {
+        beeGirlChar.GetComponent<Renderer>().enabled = true;
+        // hide description
+        descriptionPanel.GetComponent<CanvasGroup>().blocksRaycasts = false;
+        descriptionPanel.GetComponent<CanvasGroup>().alpha = 0.0f;
+        descriptionText.text = "";
     }
 }

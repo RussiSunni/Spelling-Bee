@@ -18,7 +18,8 @@ public class Biology_2_1_QuestionBank : MonoBehaviour
             questionAudio = "atom",
             answer = "atom",
             answered = false,
-            level = 1
+            level = 1,
+            description = "The smallest unit of an element that still retains the chemical properties of the element."
         };
 
         Biology_2_1_002 = new Question()
@@ -27,7 +28,8 @@ public class Biology_2_1_QuestionBank : MonoBehaviour
             questionAudio = "atomic mass",
             answer = "atomic mass",
             answered = false,
-            level = 1
+            level = 1,
+            description = "The mass of an element; approximately equal to the number of protons and neutrons in its nucleus."
         };
 
         Biology_2_1_003 = new Question()
@@ -36,7 +38,8 @@ public class Biology_2_1_QuestionBank : MonoBehaviour
             questionAudio = "atomic number",
             answer = "atomic number",
             answered = false,
-            level = 1
+            level = 1,
+            description = "The number of protons in the nucleus of the atom (Note: the number also equals the number of electrons around the nucleus)."
         };
 
         Biology_2_1_004 = new Question()
@@ -45,7 +48,8 @@ public class Biology_2_1_QuestionBank : MonoBehaviour
             questionAudio = "compound",
             answer = "compound",
             answered = false,
-            level = 1
+            level = 1,
+            description = "A chemical substance composed of atoms of two or more distinct elements chemically bonded to one another."
         };
 
         Biology_2_1_005 = new Question()
@@ -54,7 +58,8 @@ public class Biology_2_1_QuestionBank : MonoBehaviour
             questionAudio = "diatomic",
             answer = "diatomic",
             answered = false,
-            level = 1
+            level = 1,
+            description = "Containing two atoms."
         };
 
         Biology_2_1_006 = new Question()
@@ -63,7 +68,8 @@ public class Biology_2_1_QuestionBank : MonoBehaviour
             questionAudio = "electron",
             answer = "electron",
             answered = false,
-            level = 1
+            level = 1,
+            description = "A subatomic particle, fundamental to all matter, existing in orbit around the nucleus of an atom and carries a negative charge."
         };
 
         Biology_2_1_007 = new Question()
@@ -72,7 +78,8 @@ public class Biology_2_1_QuestionBank : MonoBehaviour
             questionAudio = "matter",
             answer = "matter",
             answered = false,
-            level = 1
+            level = 1,
+            description = "Anything which occupies space and has mass."
         };
 
         Biology_2_1_008 = new Question()
@@ -81,7 +88,8 @@ public class Biology_2_1_QuestionBank : MonoBehaviour
             questionAudio = "mixture",
             answer = "mixture",
             answered = false,
-            level = 1
+            level = 1,
+            description = "Two or more substances mixed together but not chemically combined."
         };
 
         Biology_2_1_009 = new Question()
@@ -90,7 +98,8 @@ public class Biology_2_1_QuestionBank : MonoBehaviour
             questionAudio = "molecule",
             answer = "molecule",
             answered = false,
-            level = 1
+            level = 1,
+            description = "A unit of matter representing the chemical properties of a substance composed of two or more atoms held together by chemical bonds."
         };
 
         Biology_2_1_010 = new Question()
@@ -99,7 +108,8 @@ public class Biology_2_1_QuestionBank : MonoBehaviour
             questionAudio = "neutron",
             answer = "neutron",
             answered = false,
-            level = 1
+            level = 1,
+            description = "A subatomic particle, fundamental to all matter except hydrogen, existing in the nucleus, with about the same mass as a proton, but carries no charge."
         };
 
         Biology_2_1_011 = new Question()
@@ -108,7 +118,8 @@ public class Biology_2_1_QuestionBank : MonoBehaviour
             questionAudio = "nucleus",
             answer = "nucleus",
             answered = false,
-            level = 1
+            level = 1,
+            description = "The positively charged center of an atom which contains both the protons and neutrons of the atom."
         };
 
         Biology_2_1_012 = new Question()
@@ -117,7 +128,8 @@ public class Biology_2_1_QuestionBank : MonoBehaviour
             questionAudio = "proton",
             answer = "proton",
             answered = false,
-            level = 1
+            level = 1,
+            description = "A subatomic particle, fundamental to all matter, existing in the nucleus, with a positive charge and about equal mass to a neutron."
         };
 
         LoadQuestionList();
