@@ -5,12 +5,11 @@ using UnityEngine.UI;
 
 public class BiologySpellingBee : MonoBehaviour
 {
-    public Text evaluationText;
     public InputField inputField;
     private int questionArrayNumber = 0;
     public Canvas questionCanvas, answerCanvas;
-    public Image descriptionPanel;
-    public Text descriptionText;
+    public Image descriptionPanel, correctionPanel;
+    public Text descriptionText, correctionText;
     public GameObject beeGirlChar, fortuneTellerChar;
     public BeeGirlChar beeGirlCharScript;
     void Start()
@@ -48,17 +47,34 @@ public class BiologySpellingBee : MonoBehaviour
     {
         if (inputField.text == Biology_2_1_QuestionBank.questions[questionArrayNumber].answer)
         {
-            evaluationText.text = "correct";
             beeGirlCharScript.CorrectAnimation();
+        //    StartCoroutine(NextCoroutine());
+
         }
         else
         {
-            evaluationText.text = "incorrect";
             beeGirlCharScript.IncorrectAnimation();
+          //  StartCoroutine(CorrectionOpenCoroutine());
         }
 
-        StartCoroutine(NextCoroutine());
+         StartCoroutine(NextCoroutine());
     }
+
+    IEnumerator CorrectionOpenCoroutine()
+    {
+        yield return new WaitForSeconds(2);
+
+        correctionPanel.GetComponent<CanvasGroup>().alpha = 1.0f;
+        // change to question view
+        answerCanvas.GetComponent<CanvasGroup>().alpha = 0.0f;
+        beeGirlChar.GetComponent<Renderer>().enabled = false;
+        beeGirlCharScript.NeutralAnimation();
+    }
+
+    // public void CorrectionClose()
+    // {
+    //     correctionPanel.GetComponent<CanvasGroup>().alpha = 0.0f;
+    // }
 
     IEnumerator NextCoroutine()
     {
@@ -103,4 +119,5 @@ public class BiologySpellingBee : MonoBehaviour
         descriptionPanel.GetComponent<CanvasGroup>().alpha = 0.0f;
         descriptionText.text = "";
     }
+
 }
